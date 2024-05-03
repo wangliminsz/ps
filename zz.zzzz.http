@@ -1,0 +1,130 @@
+###
+
+POST https://api.airtable.com/v0/appoblgGwVGW6XWbQ/thai_notify
+Content-Type: application/json
+Authorization: Bearer {{air_token}}
+
+{
+  "records": [
+    {
+        "fields": {
+            "name": "Ocean123",
+            "user_id": "fe974050-059c-463d-88cb-cc55e401b2a3",
+            "pay_period": "Monthly",
+            "remind_day": "11",
+            "rent_start": "2024-05-02",
+            "rent_end": "2024-05-04",
+            "notify_token": "11111",
+            "memo": "1111122222",
+            "updated_at": "2024-05-02T06:37:31.325Z",
+            "if_annual_notify": false
+        }
+    }
+  ]
+}  
+
+###
+
+### List all records
+
+GET https://api.airtable.com/v0/appoblgGwVGW6XWbQ/thai_notify
+Authorization: Bearer {{air_token}}
+
+###
+
+POST https://api.airtable.com/v0/appoblgGwVGW6XWbQ/thai_notify
+Content-Type: application/json
+Authorization: Bearer {{air_token}}
+
+{
+  "records": [
+    {
+      "fields": {
+        "rent_start": "2023-06-04",
+        "rent_end": "2023-06-30",
+        "notify_token": "testttttttttttt",
+        "user_id": "fe974050-059c-463d-88cb-cc55e401b2a3"
+      }
+    }
+  ]
+}
+
+###
+
+POST https://api.airtable.com/v0/appoblgGwVGW6XWbQ/thai_notify
+Content-Type: application/json
+Authorization: Bearer {{air_token}}
+
+{
+  "records": [
+    {
+        "fields": {
+            "name": "Ocean123",
+            "user_id": "fe974050-059c-463d-88cb-cc55e401b2a3",
+            "pay_period": "Monthly",
+            "remind_day": "11",
+            "rent_start": "2024-05-02",
+            "rent_end": "2024-05-04",
+            "notify_token": "11111",
+            "memo": "1111122222",
+            "updated_at": "2024-05-02T06:37:31.325Z",
+            "if_annual_notify": false
+        }
+    }
+  ]
+}  
+
+###
+###
+
+###
+
+POST https://api.airtable.com/v0/appoblgGwVGW6XWbQ/thai_notify
+Content-Type: application/json
+Authorization: Bearer {{air_token}}
+
+{
+  "records": [
+    {
+      "fields": {
+        "remind_day": 10,
+        "rent_start": "2023-06-04",
+        "rent_end": "2023-06-30",
+        "notify_token": "4bF1CsGaUoN7bjn2YPdYMI4TKFxoTW37l2ZeMVgDQXV",
+        "user_id": "6e3f0019-4fcf-4505-ae53-d9a646e1c3e3"
+      }
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###
+
+@air_token = patqeUrC7eLbBBjx5.3fa0ab9407f2512416c9ae44562fa2a83c5c4231022022c745b418e940e79667
