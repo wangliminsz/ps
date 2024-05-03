@@ -1,6 +1,6 @@
 <template>
 
-  {{  contact.fields }}
+  <!-- {{  contact.fields }} -->
   <div>
     <div class="container mt-3">
       <div class="row">
