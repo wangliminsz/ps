@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <div class="container mt-3" v-if="contacts.length > 0">
+        <div class="container mt-3" v-if="contacts.length > 0  && !loading">
             <div class="row">
                 <!-- <div class="col-md-6" v-for="contact of contacts" :key="contact"> -->
                 <!-- v-for="contact in sortedContacts" -->
@@ -283,4 +283,5 @@ export default {
     white-space: nowrap;
     max-width: 200px;
     /* adjust this value to change the maximum width */
-}</style>
+}
+</style>
