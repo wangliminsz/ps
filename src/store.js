@@ -44,22 +44,41 @@ export default createStore({
     },
 
     async logout({ commit }, { router }) {
-      // Perform the logout action here, e.g. by calling a Supabase logout function
-      const error = await supabase.auth.signOut();
-      // console.log(error)
-      if (error.error === null) {
-        // console.log('logout ok')
+      try {
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+          throw error;
+        }
+
         commit('clearLocalLogin')
-        // router.push('/login')
         const currentRoute = router.currentRoute;
         if (currentRoute.path !== "/login") {
           router.push("/login"); // Navigate to the login page
         }
-      }
-      else {
-        console.log(error)
+      } catch (error) {
+        console.error('Error during sign out:', error);
+        router.push("/login"); // If an error occurs, redirect to the login page
       }
     },
+
+    // async logout({ commit }, { router }) {
+    //   // Perform the logout action here, e.g. by calling a Supabase logout function
+    //   const error = await supabase.auth.signOut();
+    //   // console.log(error)
+    //   if (error.error === null) {
+    //     // console.log('logout ok')
+    //     commit('clearLocalLogin')
+    //     // router.push('/login')
+    //     const currentRoute = router.currentRoute;
+    //     if (currentRoute.path !== "/login") {
+    //       router.push("/login"); // Navigate to the login page
+    //     }
+    //   }
+    //   else {
+    //     console.log(error)
+    //   }
+    // },
 
     async loadStateFromLocalStorage({ commit }) {
       const { data, error } = await supabase.auth.getSession();

@@ -308,7 +308,7 @@ export default {
           if (response) {
             // console.log("ok---------> Created");
             this.loading = false;
-            // this.$router.push('/')
+            // // this.$router.push('/')
             const currentRoute = this.$router.currentRoute;
             if (currentRoute.path !== "/") {
               this.$router.push("/"); // Navigate to the page
