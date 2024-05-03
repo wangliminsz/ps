@@ -2,13 +2,14 @@
   <div>
 
     <!-- <div>
-      <h3>Select your date:</h3>
-      <DatePicker v-model:selectedDate="selectedDate" />
+      <pre> 
+          {{ contact }} 
+          {{ isValidName }}
+          {{ isValidRemindDay }}
+          {{ isValidRentStart }}
+          {{ isValidRentEnd }}
+      </pre>
     </div> -->
-    <div>
-      <pre> {{ contact }} </pre>
-      <!-- {{ selectedDate }} -->
-    </div>
 
     <div class="container mt-3">
       <div class="row">
@@ -189,23 +190,23 @@ export default {
 
   watch: {
     // Watch for changes on rent_start
-    'the_RentStart': function(newDate) {
+    'the_RentStart': function (newDate) {
       // Convert to local date string and slice to only get yyyy-mm-dd
       let dateWithCorrectTimeZone = new Date(Date.UTC(newDate.getFullYear(), newDate.getMonth(), newDate.getDate()));
-      this.contact.rent_start = dateWithCorrectTimeZone.toISOString().slice(0,10);
+      this.contact.rent_start = dateWithCorrectTimeZone.toISOString().slice(0, 10);
     },
 
-    'the_RentEnd': function(newDate) {
+    'the_RentEnd': function (newDate) {
       // Convert to local date string and slice to only get yyyy-mm-dd
       let dateWithCorrectTimeZone = new Date(Date.UTC(newDate.getFullYear(), newDate.getMonth(), newDate.getDate()));
-      this.contact.rent_end = dateWithCorrectTimeZone.toISOString().slice(0,10);
+      this.contact.rent_end = dateWithCorrectTimeZone.toISOString().slice(0, 10);
     },
 
-    'the_RemindDay': function(newDay) {
+    'the_RemindDay': function (newDay) {
       // Convert to local date string and slice to only get yyyy-mm-dd
       this.contact.remind_day = newDay.toString();
     },
-    
+
   },
 
   computed: {
@@ -226,16 +227,17 @@ export default {
       return !isNaN(remindDay) && remindDay >= 1 && remindDay <= 31;
     },
 
-    // isValidRentStart() {
-    //   const dateStr = this.contact.rent_start;
-    //   const dateObj = new Date(dateStr);
-    //   return dateObj instanceof Date && !isNaN(dateObj);
-    // },
-    // // isValidRentEnd() {
-    // //     const dateStr = this.contact.rent_end;
-    // //     const dateObj = new Date(dateStr);
-    // //     return dateObj instanceof Date && !isNaN(dateObj);
-    // // },
+    isValidRentStart() {
+      const dateStr = this.contact.rent_start;
+      const dateObj = new Date(dateStr);
+      return dateObj instanceof Date && !isNaN(dateObj);
+    },
+
+    isValidRentEnd() {
+        const dateStr = this.contact.rent_end;
+        const dateObj = new Date(dateStr);
+        return dateObj instanceof Date && !isNaN(dateObj);
+    },
 
     // isValidRentEnd() {
     //   const rentStart = new Date(this.contact.rent_start);
@@ -268,7 +270,6 @@ export default {
     isFormValid() {
       return (
         this.isValidName &&
-        // this.isValidAddress &&
         this.isValidRemindDay &&
         this.isValidRentStart &&
         this.isValidRentEnd
