@@ -1,0 +1,6 @@
+{
+    "rewrites": [
+        {"source": "/resetpassword01", "destination": "/resetpassword01"},
+        {"source": "/(.*)", "destination": "/"}
+    ]
+}
